@@ -1,0 +1,8 @@
+<interface>
+  <object id="window" class="GtkWindow">
+    <property name="visible">True</property>
+    <property name="title">Free POS</property>
+    <property name="border-width">10</property>
+    <property name="color">#bbb</property>
+  </object>
+</interface>

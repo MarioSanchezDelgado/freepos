@@ -1,0 +1,3 @@
+QWidget#MainWindow {
+  background-image:url(/home/mlsd/programming/devpos/freepos/files/test2.jpg);
+}

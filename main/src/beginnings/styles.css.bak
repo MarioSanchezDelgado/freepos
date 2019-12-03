@@ -1,0 +1,6 @@
+.main_window {
+  background-color: rgb(20,120,150);
+  border: 20px solid green;
+  margin: 20px;
+}
+

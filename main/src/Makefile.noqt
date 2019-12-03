@@ -1,0 +1,27 @@
+CC=g++
+CFLAGS=-w -D_REENTRANT -fPIE -Wno-unused-variable -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I../incl -I../../tools/incl -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore
+#CFLAGS=-Wall -D_REENTRANT -fPIE -Wno-unused-variable -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I../incl -I../../tools/incl -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore
+#PACKAGE=`pkg-config --cflags gtk+-3.0`
+SOURCES=fpos_main.c fpos_input.c fpos_state_standby.c fpos_default.c fpos_func.c 
+LIB_DIR=-L../../lib -L/usr/X11R6/lib64 -L/usr/lib/x86_64-linux-gnu
+LIBS=-lfreetools -lQt5Widgets -lQt5Gui -lQt5Core -lGL -lpthread 
+OBJ_DIR=.
+SRC_DIR=.
+BIN_DIR=../../bin
+TARGET=$(BIN_DIR)/freepos
+#freepos:FPos_main_paEmpezar.o 
+#	$(CC) `pkg-config --cflags gtk+-3.0` -o freepos FPos_main_paEmpezar.o `pkg-config --libs gtk+-3.0`
+
+
+#$(TARGET):$(SOURCES)
+#	    $(CC) $(CFLAGS) -o $@ $^ $(LIB_DIR) $(LIBS)
+
+
+$(TARGET):$(SOURCES:.c=.o)
+	    $(CC) -o $@ $^ $(LIB_DIR) $(LIBS)
+%.o:%.c
+	    $(CC) -c $(CFLAGS) -o $@ $<
+#gcc `pkg-config --cflags gtk+-3.0` -o  freepos FPos_main_paEmpezar.c `pkg-config --libs gtk+-3.0`
+#$(SOURCES:.c=.o):$(SOURCES)
+#	    $(CC) -c $(CFLAGS) -o $@ $*
+

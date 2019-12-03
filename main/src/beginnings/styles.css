@@ -1,0 +1,9 @@
+.borders {
+  border: 5px solid blue; 
+  outline: 5px solid red;
+}
+
+.main_window {
+  background-color: rgb(20,120,150);
+}
+
